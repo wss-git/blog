@@ -1,0 +1,13 @@
+menu:
+  主页: /
+  关于我: /about
+
+beian:
+  enable: false
+  icp: 省ICP备xxxxx号
+
+sidebar:
+  avatar: /images/logo.png
+  # notice: xxxx
+  category: true
+  github: https://github.com/wss-git
