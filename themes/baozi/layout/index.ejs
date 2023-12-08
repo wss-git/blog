@@ -10,8 +10,10 @@
       </div>
       <%
         var str = post.excerpt || post.description;
+        console.log(str, !str);
         if (!str) {
-          str = post.content.slice(0, 300);
+          console.log(post.content);
+          str = (post.content || '').slice(0, 300);
         }
       %>
       <div class="post-content">
