@@ -10,9 +10,7 @@
       </div>
       <%
         var str = post.excerpt || post.description;
-        console.log(str, !str);
         if (!str) {
-          console.log(post.content);
           str = (post.content || '').slice(0, 300);
         }
       %>
