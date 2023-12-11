@@ -1,0 +1,58 @@
+edition: 3.0.0          #  命令行YAML规范版本，遵循语义化版本（Semantic Versioning）规范
+name: blog      #  应用名称
+access: default_serverless_devs_access  #  秘钥别名
+
+resources:
+  resource:
+    component: fc3  # 组件名称
+    props: #  组件的属性值
+      region: cn-hangzhou
+      functionName: blog
+      runtime: custom
+      code: ./
+      memorySize: 128
+      cpu: 0.05
+      timeout: 30
+      customRuntimeConfig:
+        port: 9000
+        command:
+          - node
+          - index
+      triggers:
+        - triggerConfig:
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: LATEST
+          triggerType: http
+        - triggerConfig:
+            methods:
+              - GET
+              - POST
+              - PUT
+              - DELETE
+              - OPTIONS
+            authType: anonymous
+            disableURLInternet: false
+          triggerName: defaultTrigger
+          description: ''
+          qualifier: prod
+          triggerType: http
+  domain:
+    component: fc3-domain
+    props: #  组件的属性值
+      region: cn-hangzhou
+      domainName: blog.shoushuai.top
+      protocol: HTTP  # HTTP | HTTPS | HTTP,HTTPS
+      routeConfig:
+        routes:
+          - functionName: ${resources.resource.props.functionName}
+            path: /*
+            qualifier: LATEST

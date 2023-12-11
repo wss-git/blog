@@ -5,7 +5,11 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "deploy": "hexo deploy",
+    "precp": "npm run build",
+    "cp": "cp -r ./public ./release/public",
+    "predeploy": "npm run cp",
+    "deploy": "cd release && npm run deploy",
+    "pub": "cd release && npm run pub",
     "new": "hexo new post $1",
     "server": "hexo clean && hexo server"
   },
