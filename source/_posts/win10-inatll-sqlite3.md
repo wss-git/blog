@@ -14,7 +14,7 @@ date: 2023-12-12 10:36:33
 ## 解压包
 
 解压好之后有这五个文件
-![win10-install-sqlite2-unzip.png](/win10-install-sqlite2-unzip.png)
+![win10-install-sqlite2-unzip.png](/image/win10-install-sqlite3/unzip.png)
 
 ## 配置环境变量
 
