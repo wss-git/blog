@@ -17,16 +17,18 @@
         <%- page.content %>
       </div>
 
-      <script
-        src="https://beaudar.lipk.org/client.js"
-        repo="wss-git/wss-git"
-        branch="main"
-        issue-term="pathname"
-        theme="github-light"
-        crossorigin="anonymous"
-        loading="false"
-        async>
-      </script>
+      <% if (theme.beaudar && theme.beaudar.repo) { %>
+        <script
+          src="https://beaudar.lipk.org/client.js"
+          repo="<%- theme.beaudar.repo %>"
+          branch="<%- theme.beaudar.branch %>"
+          issue-term="pathname"
+          theme="github-light"
+          crossorigin="anonymous"
+          loading="false"
+          async>
+        </script>
+      <% } %>
     </div>
   </section>
 </article>
