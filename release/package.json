@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "deploy": "s resource deploy --function code",
+    "postdeploy": "echo \"测试域名，地址可能不可用：http://blog.fcv3.1899690531354629.cn-hangzhou.fc.devsapp.net\"",
     "pub": "s resource version publish && s resource alias publish --alias-name prod --version-id latest",
+    "postpub": "echo \"访问域名验证 https://blog.shoushuai.top\"",
     "start": "node index"
   },
   "keywords": [],
