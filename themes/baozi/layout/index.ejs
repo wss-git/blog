@@ -9,9 +9,9 @@
         </a>
       </div>
       <%
-        var str = post.excerpt || post.description;
+        var str = post.excerpt || post.description || post.title;
         if (!str) {
-          str = (post.content || '').slice(0, 300);
+          str = (post.content || '').slice(0, 100);
         }
       %>
       <div class="post-content">
