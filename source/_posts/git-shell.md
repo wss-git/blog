@@ -87,3 +87,32 @@ git rm -r --cached .
 git add .
 ```
 
+## 删除无效的远端分支
+
+使用 remote show 查看远程仓库信息
+```bash
+git remote show origin
+```
+
+```log
+* remote origin
+  Fetch URL: https://gitee.com/wss-gitee/blog.git
+  Push  URL: https://gitee.com/wss-gitee/blog.git
+  HEAD branch: main
+  Remote branches:
+    main                           tracked
+    refs/remotes/origin/docusaurus stale (use 'git remote prune' to remove)
+    refs/remotes/origin/dumi       stale (use 'git remote prune' to remove)
+    refs/remotes/origin/hexo       stale (use 'git remote prune' to remove)
+    refs/remotes/origin/mkdocs     stale (use 'git remote prune' to remove)
+  Local branch configured for 'git pull':
+    main merges with remote main
+  Local ref configured for 'git push':
+    main pushes to main (up to date)
+```
+
+
+使用 remote prune 将本地有，但是远端不存在分支删除
+```bash
+git remote prune origin
+```
