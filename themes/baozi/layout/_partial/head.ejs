@@ -3,4 +3,16 @@
   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
   <title><%= config.title %></title>
   <%- favicon_tag('images/favicon.ico') %> <%- css('css/style') %> <%- js('js/jquery.js') %> <%- js('js/search.js') %>
+
+  <% if (theme.baidu) { %>
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?<%- theme.baidu %>";
+        var s = document.getElementsByTagName("script")[0]; 
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+  <% } %>
 </head>
