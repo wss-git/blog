@@ -2,7 +2,7 @@
 title: webpack优化打包速度和体积
 categories:
   - 笔记
-excerpt: ''
+excerpt: 'webpack优化打包速度和体积'
 description: ''
 date: 2023-12-12 10:34:43
 ---
