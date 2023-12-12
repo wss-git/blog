@@ -41,7 +41,7 @@ resources:
               - OPTIONS
             authType: anonymous
             disableURLInternet: false
-          triggerName: defaultTrigger
+          triggerName: prod
           description: ''
           qualifier: prod
           triggerType: http
