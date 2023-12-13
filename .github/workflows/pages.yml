@@ -48,6 +48,7 @@ jobs:
         uses: actions/deploy-pages@v2
   serverless-devs-cd:
     needs: build
+    runs-on: ubuntu-latest
     steps:
       - run: npm install -g @serverless-devs/s3
       - run: s config add --AccessKeyID ${{secrets.AccessKeyID}} --AccessKeySecret ${{secrets.AccessKeySecret}} -a default_serverless_devs_access -f
