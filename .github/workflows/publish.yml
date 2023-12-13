@@ -19,16 +19,16 @@ jobs:
       - run: s config add --AccountID ${{secrets.ACCOUNTID}} --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a default_serverless_devs_access -f
       - run: npm run deploy
       - run: |
-        # 确保脚本抛出遇到的错误
-        set -e
+          # 确保脚本抛出遇到的错误
+          set -e
 
-        # 进入生成的文件夹
-        cd public
+          # 进入生成的文件夹
+          cd public
 
-        # 代码提交
-        git init
-        git remote add origin https://${{ secrets.GIT_TOKEN }}@github.com/wss-git/wss-git.github.io
-        git add -A
-        git commit -m 'deploy'
-        git push --set-upstream origin main -f
-        cd -
+          # 代码提交
+          git init
+          git remote add origin https://${{ secrets.GIT_TOKEN }}@github.com/wss-git/wss-git.github.io
+          git add -A
+          git commit -m 'deploy'
+          git push --set-upstream origin main -f
+          cd -
