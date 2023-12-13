@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "postinstall": "cd ./release && npm install",
     "build": "hexo generate",
     "clean": "hexo clean && rm -rf ./public && rm -rf ./release/public",
     "postbuild": "npm run cp",
