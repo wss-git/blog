@@ -16,5 +16,5 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - run: npm install
       - run: npm install -g @serverless-devs/s3
-      - run: s config add --AccountID ${secrets.ACCOUNTID} --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a default_serverless_devs_access -f
+      - run: s config add --AccountID ${{secrets.ACCOUNTID}} --AccessKeyID ${{secrets.ACCESSKEYID}} --AccessKeySecret ${{secrets.ACCESSKEYSECRET}} -a default_serverless_devs_access -f
       - run: npm run deploy
