@@ -1,7 +1,7 @@
 ---
 title: Git 常用的命令
 categories:
-  - Git
+  - git
 excerpt: 'Git 常用的命令'
 description: 'Git 常用的命令'
 date: 2023-12-12 09:24:03
@@ -10,14 +10,14 @@ date: 2023-12-12 09:24:03
 ## 设置用户名与邮箱
 
 ```
-git config --global user.name "xsahxl"
-git config --global user.email "xsahxl@126.com"
+git config --global user.name "xxxxx"
+git config --global user.email "xxxxxx@126.com"
 ```
 
 ## 添加密钥
 
 ```shell
-ssh-keygen -t rsa -C "xsahxl@126.com"
+ssh-keygen -t rsa -C "xxxxx@126.com"
 ```
 
 ## git commit 撤销
@@ -57,8 +57,8 @@ git diff-tree -r --no-commit-id --name-only f4710c4a32975904b00609f3145c709f3139
 - system 系统级
 
 ```
-git config --local user.name "xsahxl"
-git config --local user.email "xsahxl@126.com"
+git config --local user.name "xxxxx"
+git config --local user.email "xxxx@126.com"
 ```
 
 ## http 方式 clone 记住密码

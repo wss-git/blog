@@ -1,9 +1,9 @@
 ---
-title: git 已提交的 commit 中提交者的用户名和邮箱
+title: git 修改已提交的 commit 中提交者的用户名和邮箱
 categories:
-  - Git
-excerpt: 'git 已提交的 commit 中提交者的用户名和邮箱'
-description: 'git 已提交的 commit 中提交者的用户名和邮箱'
+  - git
+excerpt: 'git 修改已提交的 commit 中提交者的用户名和邮箱'
+description: 'git 修改已提交的 commit 中提交者的用户名和邮箱'
 date: 2023-12-12 10:02:16
 ---
 

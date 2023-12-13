@@ -4,8 +4,8 @@
   "private": true,
   "scripts": {
     "build": "hexo generate",
-    "clean": "hexo clean",
-    "postbuild": "rm -rf ./release/public && npm run cp",
+    "clean": "hexo clean && rm -rf ./public && rm -rf ./release/public",
+    "postbuild": "npm run cp",
     "cp": "cp -r ./public ./release/public",
     "predeploy": "npm run cp",
     "deploy": "cd release && npm run deploy",
