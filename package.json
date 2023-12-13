@@ -7,7 +7,7 @@
     "clean": "hexo clean && rm -rf ./public && rm -rf ./release/public",
     "postbuild": "npm run cp",
     "cp": "cp -r ./public ./release/public",
-    "predeploy": "npm run cp",
+    "predeploy": "npm run build",
     "deploy": "cd release && npm run deploy",
     "pub": "cd release && npm run pub",
     "new": "hexo new post $1",

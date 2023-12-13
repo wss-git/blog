@@ -52,4 +52,4 @@ jobs:
     steps:
       - run: npm install -g @serverless-devs/s3
       - run: s config add --AccessKeyID ${{secrets.AccessKeyID}} --AccessKeySecret ${{secrets.AccessKeySecret}} -a default_serverless_devs_access -f
-      - run: cd release && npm install && npm run deploy
+      - run: cd ./release && npm install && npm run deploy
