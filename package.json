@@ -5,7 +5,7 @@
   "scripts": {
     "build": "hexo generate",
     "clean": "hexo clean",
-    "precp": "npm run build && rm -rf ./release/public",
+    "postbuild": "rm -rf ./release/public && npm run cp",
     "cp": "cp -r ./public ./release/public",
     "predeploy": "npm run cp",
     "deploy": "cd release && npm run deploy",
