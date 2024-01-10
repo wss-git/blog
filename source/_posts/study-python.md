@@ -340,3 +340,188 @@ else:
 
 
 ## Day3
+
+### 杨辉三角
+
+```python
+# -*- coding: utf-8 -*-
+
+def triangles(n: int):
+  before,arr,line = [1], [],2
+  while n > line - 3:
+    print(before)
+    yield before
+    current = 1
+    arr = [1]
+    while current < line - 1:
+      arr.append(before[current] + before[current-1])
+      current = current + 1
+    arr.append(1)
+    before = arr
+    line = line + 1
+ 
+# 期待输出:
+# [1]
+# [1, 1]
+# [1, 2, 1]
+# [1, 3, 3, 1]
+# [1, 4, 6, 4, 1]
+# [1, 5, 10, 10, 5, 1]
+# [1, 6, 15, 20, 15, 6, 1]
+# [1, 7, 21, 35, 35, 21, 7, 1]
+# [1, 8, 28, 56, 70, 56, 28, 8, 1]
+# [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+
+n = 0
+results = []
+for t in triangles(9):
+  results.append(t)
+  n = n + 1
+  if n == 10:
+    break
+
+for t in results:
+  print(t)
+
+if results == [
+  [1],
+  [1, 1],
+  [1, 2, 1],
+  [1, 3, 3, 1],
+  [1, 4, 6, 4, 1],
+  [1, 5, 10, 10, 5, 1],
+  [1, 6, 15, 20, 15, 6, 1],
+  [1, 7, 21, 35, 35, 21, 7, 1],
+  [1, 8, 28, 56, 70, 56, 28, 8, 1],
+  [1, 9, 36, 84, 126, 126, 84, 36, 9, 1]
+]:
+  print('测试通过!')
+else:
+  print('测试失败!')
+```
+
+### 回数
+
+> 回数是指从左向右读和从右向左读都是一样的数，例如12321，909。请利用filter()筛选出回数
+
+**[::-1] 是一种切片语法，用于获取一个列表或元组中元素的倒序排列。它的工作方式类似于[start:end:step]，其中start是起始索引，end是结束索引，step是步长。但是，[::-1]的步长为-1，表示从右到左遍历列表或元组。**
+
+```python
+# -*- coding: utf-8 -*-
+
+def is_palindrome(n):
+  return str(n) == str(n)[::-1]
+
+
+# 测试:
+output = filter(is_palindrome, range(1, 1000))
+print('1~1000:', list(output))
+
+l = [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 22, 33, 44, 55, 66, 77, 88, 99, 101, 111, 121, 131, 141, 151, 161, 171, 181, 191]
+if list(filter(is_palindrome, range(1, 200))) == l:
+  print('测试成功!')
+else:
+  print('测试失败!')
+```
+
+### 排序
+
+```python
+# -*- coding: utf-8 -*-
+
+L = [('Bob', 75), ('Adam', 92), ('Bart', 66), ('Lisa', 88)]
+
+# 按名字排序
+def by_name(t):
+  return t[0]
+L2 = sorted(L, key=by_name)
+print(L2)
+
+# 从高到低排序
+def by_score(t):
+  return -t[1]
+L3 = sorted(L, key=by_score)
+print(L3)
+```
+
+### 闭包
+
+利用闭包返回一个计数器函数，每次调用它返回递增整数
+
+```python
+# -*- coding: utf-8 -*-
+
+def createCounter():
+  x = 0
+  def counter():
+    nonlocal x 
+    x = x + 1
+    return x
+  return counter
+
+# 测试:
+counterA = createCounter()
+print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
+
+counterB = createCounter()
+if [counterB(), counterB(), counterB(), counterB()] == [1, 2, 3, 4]:
+  print('测试通过!')
+else:
+  print('测试失败!')
+```
+
+### 匿名函数：lambda
+
+1. 接收多个参数: `lambda x,y: x+y`
+2. 只能存在一个表达式
+
+```python
+# -*- coding: utf-8 -*-
+
+def is_odd(n):
+  return n % 2 == 1
+L = list(filter(is_odd, range(1, 20)))
+
+L1 = list(filter(lambda n: n % 2 == 1, range(1, 20)))
+
+print(L == L1)
+```
+
+### 装饰器
+
+请设计一个decorator，它可作用于任何函数上，并打印该函数的执行时间
+
+```python
+# -*- coding: utf-8 -*-
+import time, functools
+
+def metric(fn):
+  @functools.wraps(fn)
+  def wraps(*args, **kw):
+    start = time.time()
+    result = fn(*args, **kw)
+    end = time.time()
+    print(f'{fn.__name__} executed in {end - start} ms')
+    return result
+  return wraps
+
+# 测试
+@metric
+def fast(x, y):
+  time.sleep(0.0012)
+  return x + y
+
+@metric
+def slow(x, y, z):
+  time.sleep(0.1234)
+  return x * y * z
+
+f = fast(11, 22)
+s = slow(11, 22, 33)
+if f != 33:
+  print('测试失败!')
+elif s != 7986:
+  print('测试失败!')
+else:
+  print('测试成功!')
+```
