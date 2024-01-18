@@ -525,3 +525,114 @@ elif s != 7986:
 else:
   print('测试成功!')
 ```
+
+## Day4
+
+### 偏函数
+
+固定函数的部分参数值，返回一个新的函数
+
+```python
+import functools
+int2 = functools.partial(int, base=2)
+int2('1000000')
+# 64
+int2('1010101')
+# 85
+```
+
+### 访问限制
+
+请把下面的Student对象的gender字段对外隐藏起来，用get_gender()和set_gender()代替，并检查参数有效性
+```python
+class Student(object):
+  def __init__(self, name, gender):
+    self.name = name
+    self.gender = gender
+```
+
+修改代码  
+```python
+# -*- coding: utf-8 -*-
+
+class Student(object):
+  def __init__(self, name, gender):
+    self.__name = name
+    self.__gender = gender
+
+  def get_gender(self):
+    return self.__gender
+  def set_gender(self, gender):
+    self.__gender = gender
+
+  def get_name(self):
+    return self.__name
+  def set_name(self, name):
+    self.__name = name
+
+# 测试:
+bart = Student('Bart', 'male')
+if bart.get_gender() != 'male':
+  print('测试失败!')
+else:
+  bart.set_gender('female')
+  if bart.get_gender() != 'female':
+    print('测试失败!')
+  else:
+    print('测试成功!')
+```
+
+### 常用对象信息
+
+```python
+import types
+
+# 基本类型
+type(123)==type(456) # True
+type(123)==int # True
+
+# 函数类型
+def fn():
+  pass
+type(fn)==types.FunctionType
+type(abs)==types.BuiltinFunctionType
+type(lambda x: x)==types.FunctionType
+type(lambda x: x)==types.LambdaType
+
+# 对象
+# h = Husky()
+# isinstance(h, Husky)
+```
+
+```python
+class MyObject(object):
+  def __init__(self):
+    self.x = 9
+  def power(self):
+    return self.x * self.x
+obj = MyObject()
+
+hasattr(obj, 'x') # 有属性'x'吗？
+setattr(obj, 'y', 19) # 设置一个属性'y'
+getattr(obj, 'y') # 获取属性'y'
+getattr(obj, 'z', 404) # 获取属性'z'，如果不存在，返回默认值404
+```
+
+```python
+class Student(object):
+  name = 'Student'
+
+s = Student() # 创建实例s
+print(s.name) # 打印name属性，因为实例并没有name属性，所以会继续查找class的name属性
+# Student
+print(Student.name) # 打印类的name属性
+# Student
+s.name = 'Michael' # 给实例绑定name属性
+print(s.name) # 由于实例属性优先级比类属性高，因此，它会屏蔽掉类的name属性
+# Michael
+print(Student.name) # 但是类属性并未消失，用Student.name仍然可以访问
+# Student
+del s.name # 如果删除实例的name属性
+print(s.name) # 再次调用s.name，由于实例的name属性没有找到，类的name属性就显示出来了
+# Student
+```
