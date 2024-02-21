@@ -1,10 +1,10 @@
 # Hexo Configuration
-## Docs: https://hexo.io/docs/configuration.html
+## Docs: https://hexo.io/zh-cn/docs/configuration
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
 title: 行！行！好！
-subtitle: ''
+subtitle: '越聚焦、越简单'
 description: '对对对，没错！'
 keywords:
   - wss

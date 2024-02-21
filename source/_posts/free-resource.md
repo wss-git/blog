@@ -1,8 +1,7 @@
 ---
 title: 免费资源
 categories:
-  - 默认
-  - 免费资源
+  - [默认, 免费资源]
 excerpt: '网络免费资源收集'
 description: '网络免费资源收集'
 date: 2023-12-20 09:27:27
@@ -58,3 +57,8 @@ date: 2023-12-20 09:27:27
 - [monaco-editor](https://github.com/Microsoft/monaco-editor)
 - [code-server](https://github.com/codercom/code-server)
 
+## 查询手机号码归属地
+
+```shell
+curl https://cx.shouji.360.cn/phonearea.php?number=${number}
+```

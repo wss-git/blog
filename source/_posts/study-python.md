@@ -343,6 +343,8 @@ else:
 
 ### 杨辉三角
 
+> yield 之后可以被返回
+
 ```python
 # -*- coding: utf-8 -*-
 

@@ -1,7 +1,7 @@
 ---
 title: unzip
 categories:
-  - linux
+  - Linux
 excerpt: 'Linux 常用指令：unzip'
 description: ''
 date: 2023-12-12 10:28:53

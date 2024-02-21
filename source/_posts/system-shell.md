@@ -1,7 +1,7 @@
 ---
 title: 常用指令
 categories:
-  - linux
+  - Linux
 excerpt: '常用指令'
 description: ''
 date: 2023-12-12 10:23:45
