@@ -12,7 +12,8 @@
     "deploy": "cd release && npm run deploy",
     "pub": "cd release && npm run pub",
     "new": "hexo new post $1",
-    "server": "hexo clean && hexo server"
+    "server": "hexo clean && hexo server",
+    "publicnet": "npx lt --port 4000"
   },
   "hexo": {
     "version": "7.0.0"
@@ -30,5 +31,8 @@
     "hexo-server": "^3.0.0",
     "hexo-theme-landscape": "^1.0.0",
     "hexo-wordcount": "^6.0.1"
+  },
+  "devDependencies": {
+    "localtunnel": "^2.0.2"
   }
 }
