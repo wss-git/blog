@@ -11,6 +11,10 @@ date: 2023-12-20 09:27:27
 
 - [前端刷题](https://fe.ecool.fun/topic-list?tagId=32)
 
+## 快速开发
+
+- [nocobase](https://cn.nocobase.com/)
+
 ## 免费音乐
 
 > [引用地址](https://github.com/ruanyf/weekly/blob/master/docs/free-music.md)
