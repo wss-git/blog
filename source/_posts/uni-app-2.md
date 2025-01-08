@@ -7,6 +7,11 @@ description: '记录开发uni-app中遇到的问题'
 date: 2024-10-25 10:09:39
 ---
 
+## rpx 和 px 的转换
+
+console.log('rpx 转 px 的方法: ', uni.upx2px(100));
+console.log('px 转 rpx 的方法: ', uni.upx2px(100));
+console.log('rpx 和 px 的比例:', uni.getSystemInfoSync().windowWidth / 750);
 
 ## 使 view(div) 能够获取焦点
 
